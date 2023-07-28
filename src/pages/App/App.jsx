@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { getItems } from '../../utilities/items-service';
+import { getItems } from "../../utilities/items-service";
 
-import ItemsList from '../ItemsList/ItemsList'
+import ItemsList from "../ItemsList/ItemsList";
 import { getUser } from "../../utilities/users-service";
 
-import ItemDetail from "../ItemDetail/ItemDetail"
+import ItemDetail from "../ItemDetail/ItemDetail";
 
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../../components/AuthPage/AuthPage";
@@ -14,19 +14,19 @@ import EditPage from "../EditPage/EditPage";
 import "./App.css";
 
 export default function App() {
-  const [user, setUser] = useState(getUser());
+  const [user, setUser] = useState(2);
   const [items, setItems] = useState([]);
 
   const getItem = async () => {
     const response = await getItems();
-    setItems(response)
-  }
+    setItems(response);
+  };
 
-  useEffect(()=>{
-    if(user){
+  useEffect(() => {
+    if (user) {
       getItem();
     }
-  }, [user])
+  }, [user]);
 
   return (
     <main className="App">
@@ -34,9 +34,20 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path="/" element={<ItemsList user={user} items={items} getItem={getItem} />} />
-            <Route path="/item/:id" element={<ItemDetail getItem={getItem} />} />
-            <Route path="/item/:id/update" element={<EditPage getItem={getItem} />} />
+            <Route
+              path="/"
+              element={
+                <ItemsList user={user} items={items} getItem={getItem} />
+              }
+            />
+            <Route
+              path="/item/:id"
+              element={<ItemDetail getItem={getItem} />}
+            />
+            <Route
+              path="/item/:id/update"
+              element={<EditPage getItem={getItem} />}
+            />
           </Routes>
         </>
       ) : (
