@@ -12,6 +12,11 @@ require("../config/database");
 
 const app = express();
 
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  next();
+});
+
 app.use(logger("dev"));
 app.use(express.json());
 
