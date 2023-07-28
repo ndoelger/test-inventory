@@ -14,7 +14,7 @@ import EditPage from "../EditPage/EditPage";
 import "./App.css";
 
 export default function App() {
-  const [user, setUser] = useState(getUser());
+  const [user, setUser] = useState(2);
   const [items, setItems] = useState([]);
 
   const getItem = async () => {
