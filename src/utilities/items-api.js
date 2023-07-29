@@ -1,6 +1,6 @@
 import sendRequest from './send-request';
 //const BASE_URL = '/api/items'
-const BASE_URL = 'https://glacial-waters-41402-a94db5158912.herokuapp.com/api/inventoryitems'
+const BASE_URL = '/inventoryitems'
 
 export async function getItems() {
   return sendRequest(BASE_URL);
@@ -23,3 +23,5 @@ export async function updateItem(formData){
   const id  = formData._id;
   return sendRequest(`${BASE_URL}/${id}/update`, 'PUT', formData);
 }
+
+
