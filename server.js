@@ -40,7 +40,6 @@ app.use(require("./config/checkToken.js"));
 //app.use statements for api calls
 //--------------------------------------
 app.use(cors());
-console.log(2)
 //--------------------------------------
 
 // Configure to use port 3001 instead of 3000 during
