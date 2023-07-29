@@ -1,6 +1,6 @@
 import sendRequest from './send-request';
 //const BASE_URL = '/api/items'
-const BASE_URL = 'https://inventorymgmt-ff2fef63acee.herokuapp.com/inventoryitems'
+const BASE_URL = 'api/inventoryitems'
 
 export async function getItems() {
   return sendRequest(BASE_URL);
